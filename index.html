@@ -33,21 +33,58 @@
         </ol>
       </div>
     </div>
+
+    <div class="run-ollama">
+      <h2>Step 1.5: Run Ollama</h2>
+      <p>Now that you’ve installed Ollama, you need to run the following command before downloading Buzzy The Llama.</p>
+      <pre><code>ollama run llama3.2</code></pre>
+      <p>Click the button below to automatically open your terminal and run the command.</p>
+      <button class="terminal-btn" onclick="runOllama()">Run Ollama</button>
+    </div>
     
     <div class="app-download">
       <h2>Step 2: Download Buzzy The Llama</h2>
-      <p>Once Ollama is installed, run Ollama on your device, You are then ready to download and use Buzzy The Llama!</p>
-      <a href="https://drive.google.com/file/d/1K8VFwfiBpmKFf7u1xcfvZNPcGDlgicLQ/view?usp=sharing">Buzzy The Llama for Windows</a>
-      <a href="https://drive.google.com/file/d/1-SY7uxJiq8OKACoyzG8ftYFGqhxBI-kb/view?usp=sharing" download class="download-btn">Buzzy The Llama for Mac </a>
+      <p>Once Ollama is installed and running, you are ready to download and use Buzzy The Llama!</p>
+      <a href="https://drive.google.com/file/d/1K8VFwfiBpmKFf7u1xcfvZNPcGDlgicLQ/view?usp=sharing" download class="download-btn">Buzzy The Llama for Windows</a>
+      <a href="https://drive.google.com/file/d/1dr_JXhkhRcgeTzcdNubQv_6Hbxa0tfJx/view?usp=sharing" download class="download-btn">Buzzy The Llama for Mac </a>
       <p>Warning signs may pop up. Please ignore them. Buzzy The Llama is secure and safe for all devices.</p>
-      <p class="note">After downloading, you may need to check that Ollama and the llama.exe applications are running in your task manager.</p>
+      <p class="note">After downloading, you may need to check that Ollama and the llama executable are running in your task manager.</p>
     </div>
     
     <div class="future-fixes">
       <h2>Future Fixes & Updates</h2>
       <ul>
         <li>Currently working on fixing a bug with the microphone button functionality.</li>
-        <li>Working on fixing input bug on windows.</li>
+        <li>Working on fixing input bug on Windows.</li>
       </ul>
     </div>
-    
+
+  </div>
+
+  <script>
+    function runOllama() {
+      const isMac = navigator.platform.toUpperCase().includes('MAC');
+      const isWindows = navigator.platform.toUpperCase().includes('WIN');
+      const isLinux = navigator.platform.toUpperCase().includes('LINUX');
+
+      if (isMac) {
+        window.open('terminal://ollama run llama3.2', '_blank');
+      } else if (isWindows) {
+        const shellCommand = `powershell.exe -Command "Start-Process cmd -ArgumentList '/k ollama run llama3.2' -Verb runAs"`;
+        const link = document.createElement('a');
+        link.href = `data:text/plain;charset=utf-8,${encodeURIComponent(shellCommand)}`;
+        link.download = "run_ollama.bat";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        alert("Downloaded a batch script to run Ollama. Please open it to start.");
+      } else if (isLinux) {
+        alert("Open a terminal and run: ollama run llama3.2");
+      } else {
+        alert("Your OS is not supported. Please open a terminal manually and run: ollama run llama3.2");
+      }
+    }
+  </script>
+
+</body>
+</html>
