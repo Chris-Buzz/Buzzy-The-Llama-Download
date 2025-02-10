@@ -47,49 +47,25 @@
   </div>
 
   <script>
-    function showRunOllama() {
-      document.getElementById('run-ollama').style.display = 'block';
+  function runOllama() {
+    const isMac = navigator.platform.toUpperCase().includes('MAC');
+    const isWindows = navigator.platform.toUpperCase().includes('WIN');
+    const isLinux = navigator.platform.toUpperCase().includes('LINUX');
+
+    if (isMac) {
+      // Open Terminal on Mac
+      window.open('terminal://');
+    } else if (isWindows) {
+      // Open Command Prompt on Windows
+      window.open('cmd://');
+    } else if (isLinux) {
+      // Open Terminal on Linux
+      window.open('x-terminal-emulator://');
+    } else {
+      alert("Your OS is not supported. Please open a terminal manually and run: ollama run llama3.2");
     }
+  }
+</script>
 
-    function runOllama() {
-      const isMac = navigator.platform.toUpperCase().includes('MAC');
-      const isWindows = navigator.platform.toUpperCase().includes('WIN');
-      const isLinux = navigator.platform.toUpperCase().includes('LINUX');
-
-      if (isMac) {
-        // Mac: Open Terminal and run Ollama
-        fetch("data:text/plain;charset=utf-8," + encodeURIComponent("osascript -e 'tell application \"Terminal\" to do script \"ollama run llama3.2\"'"))
-          .then(response => response.blob())
-          .then(blob => {
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = "run_ollama.command";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            alert("Downloaded a script. Open it to run Ollama.");
-          });
-      } else if (isWindows) {
-        // Windows: Create and run a batch script
-        const batContent = "start cmd /k ollama run llama3.2";
-        const blob = new Blob([batContent], { type: "text/plain;charset=utf-8" });
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "run_ollama.bat";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        alert("Downloaded a batch script. Open it to start Ollama.");
-      } else if (isLinux) {
-        // Linux: Just show an alert with the command
-        alert("Open a terminal and run: ollama run llama3.2");
-      } else {
-        alert("Your OS is not supported. Please open a terminal manually and run: ollama run llama3.2");
-      }
-
-      // Show Buzzy The Llama instructions after running Ollama
-      document.getElementById('buzzy-instructions').style.display = 'block';
-    }
-  </script>
 </body>
 </html>
