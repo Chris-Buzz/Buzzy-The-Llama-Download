@@ -1,6 +1,6 @@
 # 🦙 Buzzy The Llama
 
-Buzzy The Llama is a fun and interactive app designed to replace doom scrolling with engaging learning experiences.
+Download page for Buzzy The Llama, a fully working, offline, chat application.
 
 ---
 
