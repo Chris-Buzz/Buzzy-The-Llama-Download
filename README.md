@@ -1,82 +1,70 @@
-Buzzy The Llama – Download Instructions
+# 🦙 Buzzy The Llama
 
-Welcome to Buzzy The Llama! 🎉
-Follow the instructions below to install and run the app on your computer.
+Welcome to **Buzzy The Llama**!  
+This app is designed to make learning fun and engaging by replacing doom scrolling with interactive experiences.  
 
-1. Install Ollama
+---
 
-Buzzy The Llama requires Ollama to run.
+## 📥 Installation & Setup
 
-Go to Ollama’s Official Website
- and download the installer for your system.
+### 1. Install Ollama
+Buzzy The Llama requires **Ollama** to run.  
+- Download Ollama from the [official website](https://ollama.com/).  
+- Complete the installation for your operating system.
 
-Complete the installation process.
+---
 
-2. Run Ollama
+### 2. Run Ollama
+Once installed, open your terminal/command prompt and run:
 
-Once installed, you need to start Ollama from your terminal/command prompt:
-
-Mac:
-
-Press Command + Space → type Terminal → press Enter.
-
-In the terminal, run:
-
+**Mac:**
+```bash
 ollama pull llama3.2
-
-
 Windows:
 
-Press Windows + R → type cmd → press Enter.
-
-In the command prompt, run:
-
+bash
+Copy code
 ollama pull llama3.2
-
-
 Linux:
 
-Press Ctrl + Alt + T or search for Terminal.
-
-Run:
-
+bash
+Copy code
 ollama pull llama3.2
-
-
-This step is required for Buzzy The Llama to function correctly.
+This ensures the model Buzzy uses is available on your device.
 
 3. Download Buzzy The Llama
-
-Now download the app for your platform:
+Choose your platform:
 
 ⬇️ Windows Version
 
 ⬇️ Mac Version
 
-⚠️ Important:
+⚠️ Important Note:
+Since I don’t currently pay for Apple/Windows developer signing IDs, you will see security warnings when opening the app.
+Please ignore/allow these warnings — the app is safe to use.
 
-On Windows and Mac, you will see security warnings since I don’t currently pay for developer signing/IDs.
+▶️ Running the App
+Open Ollama and ensure it’s running.
 
-Please ignore/allow these warnings — Buzzy The Llama is safe and secure to run.
+Launch Buzzy The Llama.
 
-4. Run the App
+If you see “Something went wrong”:
 
-Open the downloaded application.
+Make sure Ollama is open.
 
-Make sure Ollama is running in the background.
+Verify you ran ollama pull llama3.2.
 
-If Buzzy says “Something went wrong”, check that:
+Check that the Ollama process is active in your Task Manager (Windows) or Activity Monitor (Mac).
 
-Ollama is open.
+🚧 Known Issues / Future Updates
+🎤 Microphone button currently not working for voice input.
 
-The ollama pull llama3.2 command has been run.
+🪟 Windows performance optimizations in progress.
 
-The process is running in your Task Manager (Windows) or Activity Monitor (Mac).
+🎨 More customization options coming soon.
 
-Known Issues / Future Updates
+💡 Contributing
+Suggestions, bug reports, and feature requests are always welcome! Feel free to open an issue or a pull request.
 
-🎤 Microphone button not yet working for voice input.
-
-🪟 Windows optimization in progress.
-
-🎨 More customization features coming soon.
+📜 License
+This project is released for personal use while in development. A formal license will be added in future releases.
